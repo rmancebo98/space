@@ -1,7 +1,13 @@
 package com.gbhAutomation.tests;
+import java.awt.AWTException;
+
 import org.junit.Before;
 import org.junit.Test;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 
+import com.gbhAutomation.Pages.LoginPage;
+import com.gbhAutomation.Pages.NotePage;
 import com.gbhAutomation.configuration.Chrome;
 
 public class FireBaseApp {
@@ -10,15 +16,26 @@ public class FireBaseApp {
 	//Also, with JUnit we can do stuff like specify the method that would be executed at the beginning of every test, we can specify the order by number, and much more
 	
 	//this class opens calls the configuration class (Chrome class that i create on java/com/gbhAutomation/configuration folder)
+	
+	private LoginPage login;
+	private NotePage note;
+
+//	this method runs before every test is going to run
 	@Before
 	public void startChrome() throws InterruptedException {
 		Chrome chrome = new Chrome();
-		String url = "https://gbhqatest.firebaseapp.com/";
-		chrome.startChrome(url);
+		chrome.chromePath();
 	}
 	
-	//automation should be implemented here, on the "@Test" class (can be more than one)
+	//this is a "New note test" that creates a new note every time it runs
+//	Please add your email and password to login into firebaseapp
 	@Test
-	public void testExample() {
+	public void newNoteTest() throws InterruptedException, AWTException {
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://gbhqatest.firebaseapp.com/");
+		login = new LoginPage(driver);
+		login.loginToFireBase(" "," ");
+		note = new NotePage(driver);
+		note.addNote("Title here","This is a note");
 	}
 }
