@@ -23,10 +23,10 @@
     </dependency>
     
     <dependency>
-                <groupId>org.seleniumhq.selenium</groupId>
-                <artifactId>selenium-server</artifactId>
-                <version>3.0.1</version>
-            </dependency>
+    <groupId>org.seleniumhq.selenium</groupId>
+    <artifactId>selenium-java</artifactId>
+    <version>3.141.59</version>
+</dependency>
             
             <dependency>
     <groupId>org.junit.jupiter</groupId>
@@ -34,5 +34,12 @@
     <version>5.0.1</version>
     <scope>test</scope>
 </dependency>
+<!-- https://mvnrepository.com/artifact/io.appium/java-client -->
+<dependency>
+    <groupId>io.appium</groupId>
+    <artifactId>java-client</artifactId>
+    <version>7.2.0</version>
+</dependency>
+
   </dependencies>
 </project>
